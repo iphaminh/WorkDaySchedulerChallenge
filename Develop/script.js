@@ -2,6 +2,23 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  var currentDate = dayjs().format('MMM D, YYYY');
+  $('#currentDay').text(currentDate);
+  console.log(currentDate);
+
+  $('#hour-9, #hour-10, #hour-11').remove();
+
+  var startHour = 9;
+  var endHour = 17;
+
+  for (var i = startHour; i <= endHour; i++) {
+
+    var block =$('<div>').addClass('row time-block').attr('id', 'hour-' + i);
+    var time = $('<div>').addClass('col-2 col-md-1 hour text-center py-3').text(i+'am');
+    var button = $('<div>').addClass('
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener

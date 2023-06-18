@@ -15,7 +15,7 @@ $(function () {
   for (var i = startHour; i <= endHour; i++) {
 
     var block =$('<div>').addClass('row time-block').attr('id', 'hour-' + i); //setting up the timeblock inside div element, and each row will show the time frame by using for each
-    var timeRow = $('<div>').addClass('col-2 col-md-1 hour text-center py-3').text(i+'am'); //adding bootstrap's grid system on class and ante meridiem, this might change later when we use if statement to either use 24 hours or change to pm after 12
+    var timeRow = $('<div>').addClass('col-2 col-md-1 hour text-center py-3'); //adding bootstrap's grid system on class and ante meridiem, 
     var textInside = $('<textarea>').addClass('col-8 col-md-10 description').attr('rows', 3); //adding 
     var saveButton = $('<button>').addClass('btn saveBtn col-2 col-md-1').attr('aria-label', 'save');
     var iconButton = $('<i>').addClass('fas fa-save').attr('aria-hidden', 'true').appendTo(saveButton);
@@ -24,7 +24,7 @@ $(function () {
       timeRow.text(i + 'am');
     } else if (i === 12) {
       timeRow.text(i + 'pm');
-    } else (i > 12) {
+    } else if (i > 12) {
       timeRow.text((i - 12) + 'pm');
     }
 

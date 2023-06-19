@@ -11,21 +11,31 @@ $(function () {
 
   var startHour = 9;
   var endHour = 17;
+  var currenthour = dayjs().hour()
+
 
   for (var i = startHour; i <= endHour; i++) {
 
     var block =$('<div>').addClass('row time-block').attr('id', 'hour-' + i); //setting up the timeblock inside div element, and each row will show the time frame by using for each
     var timeRow = $('<div>').addClass('col-2 col-md-1 hour text-center py-3'); //adding bootstrap's grid system on class and ante meridiem, 
-    var textInside = $('<textarea>').addClass('col-8 col-md-10 description').attr('rows', 3); //adding 
-    var saveButton = $('<button>').addClass('btn saveBtn col-2 col-md-1').attr('aria-label', 'save');
-    var iconButton = $('<i>').addClass('fas fa-save').attr('aria-hidden', 'true').appendTo(saveButton);
+    var textInside = $('<textarea>').addClass('col-8 col-md-10 description').attr('rows', 3); //styling the textarea, especially when using the Bootstrap framework, AND row 3 here is the height or how tall for the lines 
+    var saveButton = $('<button>').addClass('btn saveBtn col-2 col-md-1').attr('aria-label', 'save'); // save button
+    var iconButton = $('<i>').addClass('fas fa-save').attr('aria-hidden', 'true').appendTo(saveButton); 
+
+    if (i < currenthour) { 
+      block.addClass('past');
+    } else if (i === currenthour) {
+      block.addClass('present');
+    } else if (i > currenthour) {
+      block.addClass('future');
+    }
 
     if (i < 12) {
       timeRow.text(i + 'am');
     } else if (i === 12) {
       timeRow.text(i + 'pm');
     } else if (i > 12) {
-      timeRow.text((i - 12) + 'pm');
+      timeRow.text((i - 12) + 'pm'); 
     }
 
     block.append(timeRow, textInside, saveButton);

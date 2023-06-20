@@ -5,14 +5,13 @@ $(function () {
 
   var currentDate = dayjs().format('MMM D, YYYY');
   $('#currentDay').text(currentDate);
-  console.log(currentDate);
+  
 
   $('#hour-9, #hour-10, #hour-11').remove();
 
   var startHour = 9;
   var endHour = 17;
-  var currenthour = dayjs().hour()
-
+  var currenthour = dayjs().hour() // everytime we want to get new hours or date or sec, we have to create a new day() function otherwise they dont know where to start the day from
 
   for (var i = startHour; i <= endHour; i++) {
 
@@ -21,6 +20,7 @@ $(function () {
     var textInside = $('<textarea>').addClass('col-8 col-md-10 description').attr('rows', 3); //styling the textarea, especially when using the Bootstrap framework, AND row 3 here is the height or how tall for the lines 
     var saveButton = $('<button>').addClass('btn saveBtn col-2 col-md-1').attr('aria-label', 'save'); // save button
     var iconButton = $('<i>').addClass('fas fa-save').attr('aria-hidden', 'true').appendTo(saveButton); 
+
 
     if (i < currenthour) { 
       block.addClass('past');
@@ -40,7 +40,7 @@ $(function () {
 
     block.append(timeRow, textInside, saveButton);
     $('.container-fluid').append(block);
-    
+  
   }
 
     

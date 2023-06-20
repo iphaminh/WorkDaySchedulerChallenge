@@ -40,19 +40,18 @@ $(function () {
 
     block.append(timeRow, textInside, saveButton);
     $('.container-fluid').append(block);
-  
+    
     textInside.val(localStorage.getItem('hour-' + i));
     console.log(localStorage.getItem('hour-' + i));
-    
-    $('.saveBtn').on('click', function() {
-      var text = $(this).siblings(textInside).val()
-      var id = $(this).parents.attr('id')
-      localStorage.getItems(text, id);
-
-    })
-
   }
-      
+  
+  $('.saveBtn').on('click', function() { // could be like this too $(document).on('click', '.saveBtn', function() {
+      var text = $(this).siblings('textarea').val(); //gonna get the children of textarea within the textinside then the value of the textarea  
+      var id = $(this).parents().attr('id'); // then the id of the div, when we click it will already know and assign the time row so we dont need to use arrt('id', "hour-'+ 1") i think. This is a but confusing ***
+      localStorage.setItems(id, text);
+
+    }); 
+  
 });
 
 // TODO: Add a listener for click events on the save button. This code should

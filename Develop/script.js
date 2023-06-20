@@ -15,7 +15,7 @@ $(function () {
 
   for (var i = startHour; i <= endHour; i++) {
 
-    var block =$('<div>').addClass('row time-block').attr('id', 'hour-' + i); //setting up the timeblock inside div element, and each row will show the time frame by using for each
+    var block =$('<div>').addClass('row time-block').attr('id', 'hour-' + i); //setting up the row and timeblock inside div element, and each row will show the time frame by using for each
     var timeRow = $('<div>').addClass('col-2 col-md-1 hour text-center py-3'); //adding bootstrap's grid system on class and ante meridiem, 
     var textInside = $('<textarea>').addClass('col-8 col-md-10 description').attr('rows', 3); //styling the textarea, especially when using the Bootstrap framework, AND row 3 here is the height or how tall for the lines 
     var saveButton = $('<button>').addClass('btn saveBtn col-2 col-md-1').attr('aria-label', 'save'); // save button
@@ -41,6 +41,9 @@ $(function () {
     block.append(timeRow, textInside, saveButton);
     $('.container-fluid').append(block);
   
+    textInside.val(localStorage.getItem('hour-' + i));
+    console.log(localStorage.getItem('hour-' + i));
+    
   }
 
     

@@ -47,8 +47,8 @@ $(function () {
   
   $('.saveBtn').on('click', function() { // could be like this too $(document).on('click', '.saveBtn', function() {
       var text = $(this).siblings('textarea').val(); //gonna get the children of textarea within the textinside then the value of the textarea  
-      var id = $(this).parents().attr('id'); // then the id of the div, when we click it will already know and assign the time row so we dont need to use arrt('id', "hour-'+ 1") i think. This is a but confusing ***
-      localStorage.setItems(id, text);
+      var id = $(this).parents().attr('id'); // then the id of the div, when we click it will already know and assign the time row so we dont need to use arrt('id', "hour-'+ 1") i think. This is a but confusing *******
+      localStorage.setItems(id, text); // key first then value later ********************************
 
     }); 
   
